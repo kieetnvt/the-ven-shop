@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @product.name %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @product.price %> JPY
+</p>
+
+<p>
+	<b>Infomation:</b>
+	<%= @product.info %>
+</p>
+
+<p>
+  <%= image_tag(@product.img_small, alt: @product.name, class: "gravatar") %>
+  <%= image_tag(@product.img_medium, alt: @product.name, class: "gravatar") %>
+</p>
+<p><b>
+<%= button_to 'Add to Cart', line_items_path(product_id: @product) %>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>
+</b>
+</p>

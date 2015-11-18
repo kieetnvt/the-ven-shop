@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Product:</b>
+  <%= @line_item.product_id %>
+</p>
+
+<p>
+  <b>Cart:</b>
+  <%= @line_item.cart_id %>
+</p>
+<%= @cart = current_cart %>
+<%= @line_item.cart_id = @cart.id %>
+<%= link_to 'Your Cart', '/carts/' + @line_item.cart_id.to_s %>

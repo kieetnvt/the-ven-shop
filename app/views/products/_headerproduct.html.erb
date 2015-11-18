@@ -1,0 +1,11 @@
+
+	<div class="span3 bs-docs-sidebar">
+              <ul class="nav nav-list bs-docs-sidenav affix">
+                  <% @cates = Cate.all %>
+                  <li><b><h4>Category</h></b></li>
+                  <% @cates.each do |cate| %>
+                  <li><%= link_to cate.cate_name, cate %></li>
+                  <% end %>
+                  <li><%= link_to "New Product", '/products/new' %></li>
+              </ul>
+  </div>

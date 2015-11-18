@@ -1,0 +1,29 @@
+<h1>Listing product_items</h1>
+
+<table>
+  <tr>
+    <th>Product</th>
+    <th>Order</th>
+    <th>Quantity</th>
+    <th>Total price</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @product_items.each do |product_item| %>
+  <tr>
+    <td><%= product_item.product_id %></td>
+    <td><%= product_item.order_id %></td>
+    <td><%= product_item.quantity %></td>
+    <td><%= product_item.total_price %></td>
+    <td><%= link_to 'Show', product_item %></td>
+    <td><%= link_to 'Edit', edit_product_item_path(product_item) %></td>
+    <td><%= link_to 'Destroy', product_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Product item', new_product_item_path %>

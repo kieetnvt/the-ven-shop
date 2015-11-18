@@ -1,0 +1,19 @@
+<h1>Check Out</h1>
+<div class="row">
+	<div class="span6 offset3">
+				<%= form_for(:order, url: save_order_path) do |form| %>							
+						<%= form.label :name, "Name:" %>
+						<%= form.text_field :name, :size => 40 %>
+
+						<%= form.label :address, "Address:" %>
+						<%= form.text_area :address, :rows => 3, :cols => 40%>
+
+						<%= form.label :email, "E-Mail:" %>
+						<%= form.text_field :email, :size => 40%>
+
+						<%= form.label :pay_type, "Pay with:"%>
+						<%= form.select :pay_type, Order::PAYMENT_TYPES, :prompt => "Select a payment method"%>
+					<%= submit_tag "Place Order" , :class => "submit" %>				
+				<% end %>	
+	</div>
+</div>

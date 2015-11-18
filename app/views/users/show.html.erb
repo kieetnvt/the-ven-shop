@@ -1,0 +1,19 @@
+<% provide(:title, @user.name) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+      	Your Profile
+      </h1>
+      <h2>
+      	<%= gravatar_for @user %>
+      </h2>
+      <h3>
+        <%= @user.name %> <%= @user.email %>
+      </h3>
+      
+      <%= link_to "Setting Profile", edit_user_path %>
+      
+    </section>
+  </aside>
+</div>

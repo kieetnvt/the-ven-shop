@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+<h1>Your Products Cart</h1>
+<% @user = current_user %>
+<% if @user.present? %>
+<h2>User Name : <%=@user.name%></h2>
+<% end %>		
+<div class="row">
+	<%= render 'products/headerproduct' %>
+		<div class="span9">
+					<table>
+					<tr class="cart_name">
+					<% @cart.line_items.each do |item| %>
+					<td><%= item.quantity %> &times; </td>
+					<td><%= item.product.name %></td>
+					<td><%= number_to_currency(item.total_price)%></td> 
+					<td><%= image_tag(item.product.img_small, alt: item.product.name, class: "gravatar")%></td>
+					
+					</tr>
+					<% end %>
+					<tr class = "total_line">
+						<td colspan="2">Total</td>
+						<td class = "total_cell"><%= number_to_currency(@cart.total_price)%></td>
+					</tr>
+					</table>
+
+			
+			<%= link_to 'Empy Cart', @cart, method: :delete, confirm: 'Are you sure?' %>
+			<%= button_to "Checkout", :action => 'checkout' %>
+		</div>
+	</div>
+</div>
